@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="diceGame.css">
+    <script src="https://kit.fontawesome.com/7842c4110d.js" crossorigin="anonymous"></script>
+    <title>Dice Game</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="diceOff">DICE OFF!</h1>
+        <div id="noOfPlayersWrap">
+            <div id="noOfPlayers1" class="btn"><h3>1 Player</h3></div>
+            <div id="noOfPlayers2" class="btn"><h3>2 Player</h3></div>
+            <div id="refreshBtn" class="btn" type="button" onclick="location.reload();" >Reset</div>
+        </div>
+    </header>
+
+
+    <div id="container">
+        <div id="p1container">
+        
+            <h2>Player 1</h2>
+            <h2 id="totalScore1">0</h2>
+            <div id="player1" class="player">
+            <h3  id="rollHead1">Roll</h3><div id="player1Btn" class="btn"></div>
+            <h3 id="holdP2">Hold</h3><div id="player1Hld" class="btn"></div>
+        </div>
+    </div>
+
+        <div id="counter">
+            <div id="playerTurn"></div>
+            <div id="dice">
+                <h2 id="diceRoll">P1 Roll The Dice!</h2><img id="diceImg" src="images/dice0.png">
+            </div>
+        </div>
+
+        <div id="p2container">
+        
+            <h2>Player 2</h2>
+            <h2 id="totalScore2">0</h2>
+            <div id="player2" class="player">
+            <h3 id="rollHead2">Roll</h3><div id="player2Btn" class="btn"></div>
+            <h3 id="holdP2">Hold</h3><div id="player2Hld" class="btn"></div>
+        </div>
+        </div>
+    </div>
+    <script src="diceGame.js"></script>
+
+
+
+</body>
+
+</html>
