@@ -40,12 +40,12 @@ function playerNum2() {
 
 //PLAYER 1 TURN INDICATOR
 function p1Turn() {
-    playerTurn.innerHTML = '<i id="playerTurn" class="fa-solid fa-circle-chevron-left fa-4x"></i>';
+    playerTurn.innerHTML = 'Player 1 Turn';
 }
 
 //PLAYER 2 TURN INDICATOR
 function p2Turn() {
-    playerTurn.innerHTML = '<i id="playerTurn" class="fa-solid fa-circle-chevron-right fa-4x"></i>';
+    playerTurn.innerHTML = 'Player 2 Turn';
 }
 
 //HIDE PLAYER 1 BUTTON AND SHOW P2 BUTTON
@@ -79,7 +79,7 @@ function p1Btn() {
     //Calls on scoreGen function to create a random number for player
     scoreGen()
     //Display results to HTML and winner Notice
-    if (p1 == 1) {
+    if (p1 == 1 && diceRoll != 1) {
         diceResult.textContent = diceRoll; //Inject diceroll 1 prompt here???????
         p1TotalScore += diceRoll;
         p1Tscore.textContent = p1TotalScore;
@@ -87,8 +87,13 @@ function p1Btn() {
 
         if (p1TotalScore >= 20) {
             p1Tscore.textContent = "You win!";
+            diceResult.textContent = "Player 1 Wins!";
             console.log("P1 Wins")
         }
+    } else {
+        p1Tscore.textContent = "Player 1 rolled a 1! You 1 lose.";
+        hide1.style.display = "none";
+        hide2.style.display = "none";
     }
 
     //Check to see if 1 player game or 2 player game and action automated player 2 function if required
@@ -109,7 +114,7 @@ function p2Btn() {
     //Calls on scoreGen function to create a random number for player
     scoreGen()
     //Display results to HTML and winner Notice
-    if (p1 == 0) {
+    if (p1 == 0 && diceRoll != 1) {
         diceResult.textContent = diceRoll; //Inject diceroll 1 prompt here???????
         p2TotalScore += diceRoll; //How to change to factor in the prompt when a 1 is orlled
         p2Tscore.textContent = p2TotalScore;
@@ -117,8 +122,13 @@ function p2Btn() {
 
         if (p2TotalScore >= 20) {
             p2Tscore.textContent = "You win!";
+            diceResult.textContent = "Player 2 Wins!";
             console.log("P2 Wins")
         }
+    } else {
+        p2Tscore.textContent = "Player 2 rolled a 1! You 2 lose.";
+        hide1.style.display = "none";
+        hide2.style.display = "none";
     }
 }
 
@@ -147,17 +157,14 @@ function p2Hold() {
     hideP2()
 }
 
-//RANDOM NUMBER GENERATOR (DICE ROLL)
+//RANDOM NUMBER GENERATOR (DICE ROLL) - ALERTS PLAYER IF '1' IS ROLLED
 function scoreGen() {
     diceRoll = Math.floor(Math.random() * 6 + 1);
     const diceImage = 'images/dice' + diceRoll + '.png';
     document.getElementById("diceImg").setAttribute("src", diceImage)
-    if (diceRoll == 1) {
-        diceRoll = " - You rolled a 1. Game over!"
-        hide1.style.display = "none";
-        hide2.style.display = "none";
-        console.log("Hide everything");
-    }
+    // if (diceRoll == 1) {
+    //     diceRoll = "You rolled a 1. Game over!" //Activate Winner function for opposing player
+    // }
 }
 
 onePlayer.addEventListener("click", playerNum1) // One player game button
