@@ -105,7 +105,7 @@ function p1Btn() {
             console.log("P1 Wins");
         }
     } else {
-        p1Tscore.textContent = "Player 1 rolled a 1! You 1 lose.";
+        p1Tscore.textContent = "Player 1 rolled a 1! You lose.";
         hideAll();
     }
     sglPlayer();
@@ -130,7 +130,7 @@ function p2Btn() {
             console.log("P2 Wins")
         }
     } else {
-        p2Tscore.textContent = "Player 2 rolled a 1! You 2 lose.";
+        p2Tscore.textContent = "Player 2 rolled a 1! You lose.";
         hideAll();
     }
 }
